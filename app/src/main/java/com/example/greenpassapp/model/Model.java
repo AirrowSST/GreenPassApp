@@ -6,4 +6,8 @@ public class Model {
     public String gay(String s){
         return s;
     }
+
+    public void yawTia(String s){
+        System.out.println("Die"+s);
+    }
 }
