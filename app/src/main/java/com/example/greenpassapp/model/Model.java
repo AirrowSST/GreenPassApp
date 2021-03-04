@@ -8,6 +8,6 @@ public class Model {
     }
 
     public void yawTia(String s){
-        System.out.println("Die"+s);
+        System.out.println("Die UPDATED"+s);
     }
 }
