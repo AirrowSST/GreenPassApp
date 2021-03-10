@@ -10,4 +10,12 @@ public class Model {
     public void yawTia(String s){
         System.out.println("old"+s);
     }
+
+    /**
+     * Method 'hi()' recurses infinitely, and can only end by throwing an exception
+     *     - Android Studio
+     */
+    private String hi(Model model) {
+        return model.i_want_to_die + model.hi(this);
+    }
 }
