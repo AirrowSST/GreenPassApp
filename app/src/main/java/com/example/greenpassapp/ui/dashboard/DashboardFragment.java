@@ -34,5 +34,7 @@ public class DashboardFragment extends Fragment {
     @Override
     public void onViewCreated(@NotNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        System.out.println("test");
     }
 }

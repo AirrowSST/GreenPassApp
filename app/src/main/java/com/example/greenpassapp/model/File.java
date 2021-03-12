@@ -2,6 +2,7 @@ package com.example.greenpassapp.model;
 
 import android.content.Context;
 
+// import com.example.greenpassapp.model.File0;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
