@@ -2,6 +2,7 @@ package com.example.greenpassapp;
 
 import android.os.Bundle;
 
+import com.example.greenpassapp.model.FakeController;
 import com.example.greenpassapp.model.PasswordCreator;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -29,7 +30,11 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView navView = findViewById(R.id.nav_view);
         NavigationUI.setupWithNavController(navView, navController);
 
+        // be a Yusof Ishak
         System.out.println(PasswordCreator.create("S0000001I"));
+        // fake
+        FakeController.main(new String[]{""});
+
     }
 
 }
