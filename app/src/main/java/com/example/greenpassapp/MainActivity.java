@@ -2,6 +2,7 @@ package com.example.greenpassapp;
 
 import android.os.Bundle;
 
+import com.example.greenpassapp.model.PasswordCreator;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
         // for the bottom navigation
         BottomNavigationView navView = findViewById(R.id.nav_view);
         NavigationUI.setupWithNavController(navView, navController);
+
+        System.out.println(PasswordCreator.create("S0000001I"));
     }
 
 }
