@@ -41,5 +41,4 @@ public class Model {
         else letters = S_or_T;
         return (letters.charAt(checksum) == end);
     }
-
 }

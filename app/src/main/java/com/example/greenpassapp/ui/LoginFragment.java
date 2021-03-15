@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -13,6 +14,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.greenpassapp.R;
+import com.example.greenpassapp.model.Account;
 import com.example.greenpassapp.model.Model;
 import com.example.greenpassapp.model.PasswordCreator;
 import com.google.android.material.textfield.TextInputEditText;
@@ -73,6 +75,7 @@ public class LoginFragment extends Fragment {
                     // turn off login button
                     button.setEnabled(false);
                     // show error(s)
+                    passwordLayout.setErrorIconDrawable(null);
                     if (text.length() > 20) {
                         passwordLayout.setError(getString(R.string.error_spam));
                     } else {
@@ -138,17 +141,38 @@ public class LoginFragment extends Fragment {
         };
         usernameInput.addTextChangedListener(usernameTextWatcher);
 
-        button.setOnClickListener(this::login);
-        // the above (method reference) is equivalent to the below (lambda)
-        // setOnClickListener(view -> { login(view) });
+        button.setOnClickListener(view1 -> {
+            login(view1, Objects.requireNonNull(usernameInput.getText()).toString());
+        });
+    }
+
+    // does nothing at all
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+//                NavUtils.navigateUpFromSameTask(this);
+                System.out.println("login: back button pressed");
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     /**
      * This method is run when user clicks on the login button (it must be enabled)
      */
-    public void login(View view) {
+    public void login(View view, String username) {
 //        System.out.println("login button pressed");
         PassDialog.showDialog(requireActivity());
+        Account.setUser(username);
+    }
+
+    public void logout(View view) {
+//        System.out.println("login button pressed");
+        PassDialog.showDialog(requireActivity());
+        Account.setUser("");
+        Account.setUserPassed(false);
     }
 
 }

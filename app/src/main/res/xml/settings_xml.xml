@@ -1,0 +1,25 @@
+<androidx.preference.PreferenceScreen
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory
+        app:key="switches_category"
+        app:title="Switches">
+
+        <SwitchPreferenceCompat
+            app:key="default"
+            app:title="A nice toggle button"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        app:key="hack_category"
+        app:title="Hacks">
+
+        <Preference
+            app:key="clicker"
+            app:title="Hello!"
+            app:summary="Click here to become an admin! (no)" />
+
+    </PreferenceCategory>
+
+</androidx.preference.PreferenceScreen>

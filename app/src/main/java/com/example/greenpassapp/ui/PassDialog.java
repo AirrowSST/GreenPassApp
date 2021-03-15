@@ -70,7 +70,7 @@ public class PassDialog extends DialogFragment {
      */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // Inflate the layout to use as dialog or embedded fragment
+        // Inflate the layout (layout == balloon?)
         return inflater.inflate(R.layout.pass_dialog_layout, container, false);
     }
 

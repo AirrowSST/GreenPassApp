@@ -1,10 +1,12 @@
 <resources>
     <string name="app_name">Green Pass App</string>
-    <string name="title_activity_main">MainActivity</string>
+
+    <string name="title_activity_main">Green Pass App</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
     <string name="title_login">Login</string>
+    <string name="title_settings">Settings</string>
     <string name="title_pass_dialog">GREEN PASS</string>
 
     <!-- login -->
@@ -13,9 +15,11 @@
     <string name="error_long_nric">NRIC is a bit too long.</string>
     <string name="error_spam">Stop spamming.</string>
 
-    <string name="hint_text_password">Password</string>
+    <string name="hint_text_password">Password (optional)</string>
     <string name="error_invalid_password">Invalid password!</string>
     <string name="error_cannot_password">Invalid NRIC above!</string>
+
+    <string name="help_text_password">The password is used for verification for the GREEN PASS.</string>
 
     <!-- buttons -->
     <string name="action_login">Login</string>
