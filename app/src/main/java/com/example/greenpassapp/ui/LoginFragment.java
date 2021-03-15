@@ -24,6 +24,12 @@ import java.util.Objects;
 
 public class LoginFragment extends Fragment {
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
+
+    @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_login, container, false);
         return rootView;
@@ -32,7 +38,7 @@ public class LoginFragment extends Fragment {
     @Override
     public void onViewCreated(@NotNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        System.out.println("login");
+//        System.out.println("login fragment entered");
 
         // stuff in the login fragment
         Button button = view.findViewById(R.id.login_button);
@@ -131,6 +137,18 @@ public class LoginFragment extends Fragment {
             }
         };
         usernameInput.addTextChangedListener(usernameTextWatcher);
+
+        button.setOnClickListener(this::login);
+        // the above (method reference) is equivalent to the below (lambda)
+        // setOnClickListener(view -> { login(view) });
+    }
+
+    /**
+     * This method is run when user clicks on the login button (it must be enabled)
+     */
+    public void login(View view) {
+//        System.out.println("login button pressed");
+        PassDialog.showDialog(requireActivity());
     }
 
 }

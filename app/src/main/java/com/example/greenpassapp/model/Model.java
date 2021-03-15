@@ -2,25 +2,17 @@ package com.example.greenpassapp.model;
 
 public class Model {
 
-    // hi
-    String i_want_to_die = "i want to die";
-
-    public String gay(String s){
-        return s;
-    }
-
-    public void yawTia(String s){
-        System.out.println("old"+s);
-    }
-
     /**
-     * Method 'hi()' recurses infinitely, and can only end by throwing an exception
+     * Method 'yawTia()' recurses infinitely, and can only end by throwing an exception
      *     - Android Studio
      */
-    private String hi(Model model) {
-        return model.i_want_to_die + model.hi(this);
+    private static String yawTia(Model model) {
+        return yawTia(model);
     }
 
+
+    // validate IC
+    // should I put this in a separate class?
 
     private static final int[] ic_multipliers = {2, 7, 6, 5, 4, 3, 2};
     private static final String ic_start = "FGST";

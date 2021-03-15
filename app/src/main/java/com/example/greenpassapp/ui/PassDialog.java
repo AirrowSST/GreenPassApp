@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.ImageButton;
 
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.FragmentActivity;
@@ -19,22 +20,49 @@ import org.jetbrains.annotations.NotNull;
 /**
  * A full-screen dialog to show the GREEN PASS.
  */
-class PassDialog extends DialogFragment {
+public class PassDialog extends DialogFragment {
+
+    public PassDialog() {}
 
     /**
      * use this method to show the pass (must be called from a fragment?)
      */
     public static void showDialog(FragmentActivity activity) {
         PassDialog newFragment = new PassDialog();
-        // show the fragment fullscreen
-        FragmentTransaction transaction = activity.getSupportFragmentManager().beginTransaction();
-        // transition animation
-        transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        // show
-        transaction
-                .add(android.R.id.content, newFragment)
-                .addToBackStack(null)
-                .commit();
+        newFragment.show(activity.getSupportFragmentManager(), "dialog");
+
+//        // show the fragment fullscreen
+//        FragmentTransaction transaction = activity.getSupportFragmentManager().beginTransaction();
+//        // transition animation
+//        transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+//        // show
+//        transaction
+//                .add(android.R.id.content, newFragment)
+//                .addToBackStack(null)
+//                .commit();
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        Dialog dialog = getDialog();
+        if (dialog != null) {
+            // no need, already in style
+//            int width = ViewGroup.LayoutParams.MATCH_PARENT;
+//            int height = ViewGroup.LayoutParams.MATCH_PARENT;
+//            dialog.getWindow().setLayout(width, height);
+
+            // doesn't work?
+            dialog.getWindow().setWindowAnimations(
+                    R.style.PassDialogAnimation
+            );
+        }
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setStyle(STYLE_NO_FRAME, R.style.Theme_GreenPassApp_Dialog_Fullscreen);
     }
 
     /**
@@ -50,7 +78,19 @@ class PassDialog extends DialogFragment {
     public void onViewCreated(@NotNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        RealController.hideKeyboard(requireContext(), view);
+        requireDialog().getWindow().setWindowAnimations(
+                R.style.PassDialogAnimation
+        );
+
+        RealController.hideKeyboard(this.requireContext(), view);
+
+        // close button
+        ImageButton closeButton = view.findViewById(R.id.close_dialog);
+        closeButton.setOnClickListener(view1 -> {
+            dismiss();
+            RealController.hideKeyboard(this.requireContext(), view1);
+        });
+
     }
 
     /**

@@ -13,4 +13,27 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="Theme.GreenPassApp.Dialog.Fullscreen" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- window -->
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowBackground">@color/white</item>
+        <item name="android:windowFullscreen">true</item>
+
+        <!-- colour -->
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+    </style>
+
+    <style name="PassDialogAnimation">
+        <item name="android:windowEnterAnimation">
+            @anim/enter_slide_up
+        </item>
+        <item name="android:windowExitAnimation">
+            @anim/exit_slide_down
+        </item>
+    </style>
+
 </resources>

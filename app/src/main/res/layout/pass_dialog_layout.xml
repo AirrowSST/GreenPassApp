@@ -17,6 +17,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageButton
+        android:id="@+id/close_dialog"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:background="#00FFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_round_close_24" />
+
     <!-- found when searching google images for "green pass" -->
     <!-- https://m.media-amazon.com/images/I/71TGGX4tY6L.jpg -->
     <!-- wow the two lines above are exactly the same length -->
@@ -28,6 +37,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/event_dialog_toolbar" />
+        app:layout_constraintTop_toBottomOf="@+id/event_dialog_toolbar"
+        android:src="@drawable/green_pass_temp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

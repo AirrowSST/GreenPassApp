@@ -5,6 +5,7 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
     <string name="title_login">Login</string>
+    <string name="title_pass_dialog">GREEN PASS</string>
 
     <!-- login -->
     <string name="hint_text_nric">NRIC</string>
