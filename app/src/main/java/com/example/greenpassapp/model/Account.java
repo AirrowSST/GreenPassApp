@@ -2,8 +2,12 @@ package com.example.greenpassapp.model;
 
 import android.content.Context;
 
+import androidx.annotation.Nullable;
+
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 import java.util.TreeMap;
 
 public class Account {
@@ -51,7 +55,7 @@ public class Account {
         return (s != null) ? s : "";
     }
 
-    public static void setUserPassed(boolean passed, Context context) {
+    public static void setUserPassed(boolean passed, @Nullable Context context) {
         Account.passed = passed;
 
         // if logging out, there is no need to update the map or database
@@ -61,7 +65,12 @@ public class Account {
 
         // also update the database
         try {
-            String string = user + "," + passed + "," + (new Date()).toString();
+            String date = (new SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH)).format(new Date());
+            // 3 fields to store in database:
+            // 1. username NRIC (String)
+            // 2. whether the user has GREEN PASS (boolean)
+            // 3. display date of vaccination (String)
+            String string = user + "," + passed + "," + date;
             File.overwriteLine("vaccine.txt", context, string, user, ",");
         } catch (IOException e) {
             e.printStackTrace();

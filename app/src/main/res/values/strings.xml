@@ -9,6 +9,8 @@
     <string name="title_settings">Settings</string>
     <string name="title_pass_dialog">GREEN PASS</string>
 
+    <string name="green_pass">GREEN PASS</string>
+
     <!-- login -->
     <string name="hint_text_nric">NRIC</string>
     <string name="error_invalid_nric">Invalid NRIC!</string>
