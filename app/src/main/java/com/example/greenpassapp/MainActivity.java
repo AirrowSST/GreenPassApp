@@ -1,11 +1,13 @@
 package com.example.greenpassapp;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.ContextMenu;
 import android.view.MenuItem;
 import android.view.View;
 
 import com.example.greenpassapp.model.FakeController;
+import com.example.greenpassapp.model.Model;
 import com.example.greenpassapp.model.PasswordCreator;
 import com.example.greenpassapp.ui.SettingsFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -40,10 +42,12 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView navView = findViewById(R.id.nav_view);
         NavigationUI.setupWithNavController(navView, navController);
 
+        /* model-related things below */
+
         // be a Yusof Ishak and get his password (if the password creator is working, it should print "yusofishak")
         System.out.println(PasswordCreator.create("S0000001I"));
-        // fake
-        FakeController.main(new String[]{""});
+
+        Model.initFiles(this);
 
     }
 

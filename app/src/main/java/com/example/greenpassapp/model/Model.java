@@ -1,5 +1,9 @@
 package com.example.greenpassapp.model;
 
+import android.content.Context;
+
+import java.io.IOException;
+
 public class Model {
 
     /**
@@ -40,5 +44,22 @@ public class Model {
             letters = F_or_G;
         else letters = S_or_T;
         return (letters.charAt(checksum) == end);
+    }
+
+    // initialize the "fake online database"
+    public static void initFiles(Context context) {
+        try {
+
+            if (!File.createFile("vaccine.txt", context)) {
+                // read from the file
+                Account.load(context);
+            } else {
+                // write empty string if file doesn't exist
+                File.writeToFile("vaccine.txt", context, "");
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
