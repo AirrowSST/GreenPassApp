@@ -1,30 +1,50 @@
 package com.example.greenpassapp;
 
 import android.os.Bundle;
+import android.view.ContextMenu;
+import android.view.MenuItem;
+import android.view.View;
 
+import com.example.greenpassapp.model.FakeController;
+import com.example.greenpassapp.model.PasswordCreator;
+import com.example.greenpassapp.ui.SettingsFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NavUtils;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
+
+import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // layout
         setContentView(R.layout.activity_main);
-        BottomNavigationView navView = findViewById(R.id.nav_view);
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
+
+        // Passing each menu ID as a set of IDs because each menu should be considered as top level destinations.
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications)
-                .build();
+                R.id.navigation_login, R.id.navigation_home, R.id.navigation_settings
+        ).build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
+
+        // for the bottom navigation
+        BottomNavigationView navView = findViewById(R.id.nav_view);
         NavigationUI.setupWithNavController(navView, navController);
+
+        // be a Yusof Ishak and get his password (if the password creator is working, it should print "yusofishak")
+        System.out.println(PasswordCreator.create("S0000001I"));
+        // fake
+        FakeController.main(new String[]{""});
+
     }
 
 }

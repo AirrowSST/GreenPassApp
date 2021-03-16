@@ -10,8 +10,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GreenPassApp">
         <activity
+            android:windowSoftInputMode="adjustPan"
             android:name=".MainActivity"
-            android:label="@string/title_activity_main"></activity>
+            android:label="@string/title_activity_main">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
+
+    <uses-permission android:name="android.permission.CAMERA"/>
 
 </manifest>

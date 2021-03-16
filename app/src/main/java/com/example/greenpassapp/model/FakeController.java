@@ -1,10 +1,13 @@
 package com.example.greenpassapp.model;
 
-import org.w3c.dom.ls.LSOutput;
-
 public class FakeController {
+
     public static void main(String[] args) {
-        System.out.println("new");
+        main(args[0]);
+    }
+
+    public static void main(String args) {
+        System.out.println("Hi I am a fake controller " + args);
     }
 
 }
