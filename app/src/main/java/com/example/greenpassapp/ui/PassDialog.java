@@ -9,8 +9,7 @@ import android.view.Window;
 import android.widget.ImageButton;
 
 import androidx.fragment.app.DialogFragment;
-import androidx.fragment.app.FragmentActivity;
-import androidx.fragment.app.FragmentTransaction;
+import androidx.fragment.app.FragmentManager;
 
 import com.example.greenpassapp.R;
 import com.example.greenpassapp.model.RealController;
@@ -27,9 +26,9 @@ public class PassDialog extends DialogFragment {
     /**
      * use this method to show the pass (must be called from a fragment?)
      */
-    public static void showDialog(FragmentActivity activity) {
+    public static void showDialog(FragmentManager manager) {
         PassDialog newFragment = new PassDialog();
-        newFragment.show(activity.getSupportFragmentManager(), "dialog");
+        newFragment.show(manager, "dialog");
 
 //        // show the fragment fullscreen
 //        FragmentTransaction transaction = activity.getSupportFragmentManager().beginTransaction();

@@ -26,12 +26,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-//        setSupportActionBar(findViewById(R.id.toolbar));
-
-        // todo remove weird back button on login and settings pages done
-        // doesn't work
-//        Objects.requireNonNull(this.getSupportActionBar()).setDisplayHomeAsUpEnabled(false);
-
         // layout
         setContentView(R.layout.activity_main);
 
@@ -46,38 +40,11 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView navView = findViewById(R.id.nav_view);
         NavigationUI.setupWithNavController(navView, navController);
 
-        // be a Yusof Ishak and get his password (if the password creator is working, it should print "yusofishak"
+        // be a Yusof Ishak and get his password (if the password creator is working, it should print "yusofishak")
         System.out.println(PasswordCreator.create("S0000001I"));
         // fake
         FakeController.main(new String[]{""});
 
     }
 
-    // does nothing at all
-//    @Override
-//    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-//        switch (item.getItemId()) {
-//            case android.R.id.home:
-//                NavUtils.navigateUpFromSameTask(this);
-//                System.out.println("back button pressed");
-//                return true;
-//            default:
-//                return super.onOptionsItemSelected(item);
-//        }
-//    }
-
-//    @Override
-//    public boolean onContextItemSelected(@NonNull MenuItem item) {
-//        getSupportFragmentManager()
-//                .beginTransaction()
-//                .replace(R.id.settings_container, new SettingsFragment())
-//                .commit();
-//        return super.onContextItemSelected(item);
-//    }
-
-
-    @Override
-    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
-        super.onCreateContextMenu(menu, v, menuInfo);
-    }
 }

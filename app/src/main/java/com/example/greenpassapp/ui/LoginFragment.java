@@ -164,13 +164,14 @@ public class LoginFragment extends Fragment {
      */
     public void login(View view, String username) {
 //        System.out.println("login button pressed");
-        PassDialog.showDialog(requireActivity());
+//        PassDialog.showDialog(requireActivity().getSupportFragmentManager());
+        ScanFragment.startScan(requireActivity().getSupportFragmentManager());
         Account.setUser(username);
     }
 
     public void logout(View view) {
-//        System.out.println("login button pressed");
-        PassDialog.showDialog(requireActivity());
+//        System.out.println("logout button pressed");
+//        PassDialog.showDialog(requireActivity().getSupportFragmentManager());
         Account.setUser("");
         Account.setUserPassed(false);
     }
