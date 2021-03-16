@@ -173,7 +173,7 @@ public class LoginFragment extends Fragment {
 //        System.out.println("logout button pressed");
 //        PassDialog.showDialog(requireActivity().getSupportFragmentManager());
         Account.setUser("");
-        Account.setUserPassed(false);
+        Account.setUserPassed(false, requireContext());
     }
 
 }
