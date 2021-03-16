@@ -74,17 +74,17 @@ public class PassDialog extends DialogFragment {
     }
 
     @Override
-    public void onViewCreated(@NotNull View view, Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
+    public void onViewCreated(@NotNull View root, Bundle savedInstanceState) {
+        super.onViewCreated(root, savedInstanceState);
 
         requireDialog().getWindow().setWindowAnimations(
                 R.style.PassDialogAnimation
         );
 
-        RealController.hideKeyboard(this.requireContext(), view);
+        RealController.hideKeyboard(this.requireContext(), root);
 
         // close button
-        ImageButton closeButton = view.findViewById(R.id.close_dialog);
+        ImageButton closeButton = root.findViewById(R.id.close_dialog);
         closeButton.setOnClickListener(view1 -> {
             dismiss();
             RealController.hideKeyboard(this.requireContext(), view1);

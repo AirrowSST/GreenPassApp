@@ -38,16 +38,16 @@ public class LoginFragment extends Fragment {
     }
 
     @Override
-    public void onViewCreated(@NotNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
+    public void onViewCreated(@NotNull View root, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(root, savedInstanceState);
 //        System.out.println("login fragment entered");
 
         // stuff in the login fragment
-        Button button = view.findViewById(R.id.login_button);
-        TextInputLayout usernameLayout = view.findViewById(R.id.layout_username);
-        TextInputLayout passwordLayout = view.findViewById(R.id.layout_password);
-        TextInputEditText usernameInput = view.findViewById(R.id.input_username);
-        TextInputEditText passwordInput = view.findViewById(R.id.input_password);
+        Button button = root.findViewById(R.id.login_button);
+        TextInputLayout usernameLayout = root.findViewById(R.id.layout_username);
+        TextInputLayout passwordLayout = root.findViewById(R.id.layout_password);
+        TextInputEditText usernameInput = root.findViewById(R.id.input_username);
+        TextInputEditText passwordInput = root.findViewById(R.id.input_password);
 
         // on password text changed
         TextWatcher passwordTextWatcher = new TextWatcher() {
@@ -141,8 +141,8 @@ public class LoginFragment extends Fragment {
         };
         usernameInput.addTextChangedListener(usernameTextWatcher);
 
-        button.setOnClickListener(view1 -> {
-            login(view1, Objects.requireNonNull(usernameInput.getText()).toString());
+        button.setOnClickListener(view -> {
+            login(view, Objects.requireNonNull(usernameInput.getText()).toString());
         });
     }
 
@@ -164,15 +164,23 @@ public class LoginFragment extends Fragment {
      */
     public void login(View view, String username) {
 //        System.out.println("login button pressed");
-//        PassDialog.showDialog(requireActivity().getSupportFragmentManager());
-        ScanFragment.startScan(requireActivity().getSupportFragmentManager());
+
+        // log in
         Account.setUser(username);
     }
 
+    // can show the dialog
+//    PassDialog.showDialog(requireActivity().getSupportFragmentManager());
+    // or start scan
+//    ScanFragment.startScan(requireActivity().getSupportFragmentManager());
+
     public void logout(View view) {
 //        System.out.println("logout button pressed");
-//        PassDialog.showDialog(requireActivity().getSupportFragmentManager());
+
+        // log out
         Account.setUser("");
+
+        // user passed yay
         Account.setUserPassed(false, requireContext());
     }
 

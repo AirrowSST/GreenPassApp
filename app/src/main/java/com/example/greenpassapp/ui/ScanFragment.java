@@ -20,6 +20,7 @@ import com.budiyev.android.codescanner.CodeScanner;
 import com.budiyev.android.codescanner.CodeScannerView;
 import com.budiyev.android.codescanner.DecodeCallback;
 import com.example.greenpassapp.R;
+import com.example.greenpassapp.model.RealController;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.zxing.Result;
 
@@ -65,6 +66,8 @@ public class ScanFragment extends Fragment {
         super.onViewCreated(root, savedInstanceState);
 
         this.root = root;
+
+        RealController.hideKeyboard(requireContext(), root);
 
         Activity activity = this.requireActivity();
         CodeScannerView scannerView = root.findViewById(R.id.scanner_view);

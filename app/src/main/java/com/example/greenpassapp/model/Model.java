@@ -6,15 +6,6 @@ import java.io.IOException;
 
 public class Model {
 
-    /**
-     * Method 'yawTia()' recurses infinitely, and can only end by throwing an exception
-     *     - Android Studio
-     */
-    private static String yawTia(Model model) {
-        return yawTia(model);
-    }
-
-
     // validate IC
     // should I put this in a separate class?
 
@@ -62,4 +53,5 @@ public class Model {
             e.printStackTrace();
         }
     }
+
 }
