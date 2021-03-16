@@ -170,7 +170,8 @@ public class LoginFragment extends Fragment {
 
         // Just a test.
         // The user should not have to provide a password on login but rather using something else (probably on a profile page).
-//        Account.setUserPassed(true, requireContext());
+        // The line below should be deleted.
+        Account.setUserPassed(true, requireContext());
     }
 
     // can show the dialog

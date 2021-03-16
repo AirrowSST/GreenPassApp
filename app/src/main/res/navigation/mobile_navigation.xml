@@ -31,6 +31,13 @@
     </fragment>
 
     <fragment
+        android:id="@+id/navigation_check"
+        android:name="com.example.greenpassapp.ui.CheckFragment"
+        android:label="@string/title_check"
+        tools:layout="@layout/fragment_check" >
+    </fragment>
+
+    <fragment
         android:id="@+id/navigation_settings"
         android:name="com.example.greenpassapp.ui.SettingsFragment"
         android:label="@string/title_settings">
