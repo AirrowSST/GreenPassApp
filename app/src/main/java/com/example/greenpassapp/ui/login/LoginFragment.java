@@ -54,6 +54,7 @@ public class LoginFragment extends Fragment {
             login(view, Objects.requireNonNull(binding.inputUsername.getText()).toString());
         });
     }
+
     private void onUsernameTextChanged() {
         String text = mViewModel.getUsernameInput();
         // if the text is a valid NRIC
@@ -82,6 +83,7 @@ public class LoginFragment extends Fragment {
             }
         }
     }
+
     private void onPasswordTextChanged() {
         String text = mViewModel.getPasswordInput();
         String ic = mViewModel.getPasswordInput();
@@ -89,6 +91,7 @@ public class LoginFragment extends Fragment {
         if (NRICModel.checkIC(ic)) {
             correct = PasswordCreator.create(ic);
         }
+        binding.layoutPassword.setEnabled(true);
         if (correct.equals(text)) {
             // password is correct!
             // turn on login button
@@ -105,8 +108,13 @@ public class LoginFragment extends Fragment {
                 binding.layoutPassword.setError(getString(R.string.error_spam));
             } else {
                 if (NRICModel.checkIC(mViewModel.getUsernameInput())) {
-                    binding.layoutPassword.setError(getString(R.string.error_invalid_password));
+                    if (text.length() > 0) {
+                        binding.layoutPassword.setError(getString(R.string.error_invalid_password));
+                    } else {
+                        binding.layoutPassword.setHelperText("...");
+                    }
                 } else {
+                    binding.layoutPassword.setEnabled(false);
                     binding.layoutPassword.setError(getString(R.string.error_cannot_password));
                 }
             }

@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
         View root = findViewById(R.id.activityMainRoot);
         root.setOnClickListener(arg -> KeyboardManager.hideKeyboard(getBaseContext(), root));
 
+
         // Navigation
         // Passing each menu ID as a set of IDs because each menu should be considered as top level destinations.
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(

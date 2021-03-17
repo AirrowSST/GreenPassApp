@@ -32,8 +32,7 @@ public class CheckFragment extends Fragment {
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_check, container, false);
-        return rootView;
+        return inflater.inflate(R.layout.fragment_check, container, false);
     }
 
     @Override
@@ -52,7 +51,7 @@ public class CheckFragment extends Fragment {
         TextWatcher usernameTextWatcher = new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                // ???
+                // hopefully don't need
             }
 
             @Override
@@ -91,7 +90,7 @@ public class CheckFragment extends Fragment {
 
             @Override
             public void afterTextChanged(Editable s) {
-                // ????
+                // these methods are sort of useless
             }
         };
         nricInput.addTextChangedListener(usernameTextWatcher);
