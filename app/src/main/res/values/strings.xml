@@ -10,6 +10,7 @@
     <string name="title_settings">Settings</string>
     <string name="title_admin">Admin</string>
     <string name="title_pass_dialog">GREEN PASS</string>
+    <string name="title_scanner">Scanner</string>
 
     <string name="green_pass">GREEN PASS</string>
 
@@ -40,10 +41,17 @@
     <string name="hint_text_admin_username">NRIC</string>
     <string name="text_password_result">Password: %s</string>
 
+    <string name="admin_hack_toast">You are %d steps away from becoming an admin.</string>
+    <string name="admin_hack_toast_one">You are 1 step away from becoming an admin.</string>
+    <string name="admin_open_toast">Opening admin dialog…</string>
+    <string name="admin_open_toast_first_time">You are now an admin!</string>
+
     <!-- buttons -->
     <string name="action_login">Login</string>
     <string name="action_check">Check</string>
     <string name="action_get_password">Copy password!</string>
     <string name="action_copy">Copy</string>
+
+    <string name="intent_web_title">Open in Browser</string>
 
 </resources>

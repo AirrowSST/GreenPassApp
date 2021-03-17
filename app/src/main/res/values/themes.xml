@@ -32,7 +32,7 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
     </style>
 
-    <style name="PassDialogAnimation">
+    <style name="DialogAnimation">
         <item name="android:windowEnterAnimation">
             @anim/enter_slide_up
         </item>

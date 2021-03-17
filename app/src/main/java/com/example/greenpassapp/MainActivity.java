@@ -8,6 +8,7 @@ import com.example.greenpassapp.model.PasswordCreator;
 import com.example.greenpassapp.ui.KeyboardManager;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -15,6 +16,8 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 public class MainActivity extends AppCompatActivity {
+
+    private @Nullable BottomNavigationView bottomNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,14 +39,18 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         // for the bottom navigation
-        BottomNavigationView navView = findViewById(R.id.nav_view);
-        NavigationUI.setupWithNavController(navView, navController);
+        bottomNavigationView = findViewById(R.id.nav_view);
+        NavigationUI.setupWithNavController(bottomNavigationView, navController);
 
         // model-related things below
         // be a Yusof Ishak and get his password (if the password creator is working, it should print "yusofishak")
         System.out.println(PasswordCreator.create("S0000001I"));
         // initialize the database ("vaccine.txt")
         NRICModel.initFiles(this);
+    }
+
+    public BottomNavigationView getBottomNavigation() {
+        return bottomNavigationView;
     }
 
 }

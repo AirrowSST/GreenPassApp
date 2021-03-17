@@ -12,6 +12,43 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+        app:key="open_category"
+        app:title="Links">
+
+        <Preference
+            app:key="pass"
+            app:title="Green Pass"
+            app:summary="Open the GREEN PASS" />
+
+        <Preference
+            app:key="scan"
+            app:title="Scanner"
+            app:summary="Open the QR code scanner" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        app:key="tabs_category"
+        app:title="Tabs">
+
+        <Preference
+            app:key="tab_1"
+            app:title="Home"
+            app:summary="Switch to the main tab" />
+
+        <Preference
+            app:key="tab_2"
+            app:title="Login"
+            app:summary="Switch to the login tab" />
+
+        <Preference
+            app:key="tab_3"
+            app:title="Check Other People"
+            app:summary="Switch to the check tab" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
         app:key="hack_category"
         app:title="Hacks">
 

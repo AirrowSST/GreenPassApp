@@ -2,7 +2,11 @@ package com.example.greenpassapp.ui;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +16,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
+import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -20,18 +25,19 @@ import com.budiyev.android.codescanner.CodeScanner;
 import com.budiyev.android.codescanner.CodeScannerView;
 import com.budiyev.android.codescanner.DecodeCallback;
 import com.example.greenpassapp.R;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.zxing.Result;
 
 import java.util.Objects;
 
-public class ScanFragment extends Fragment {
+public class ScanFragment extends DialogFragment {
 
+    private static final int REQUEST_CODE = 1;
 
     private CodeScanner mCodeScanner;
     private @Nullable View root;
     private boolean isScannerSet = false;
-    private final int REQUEST_CODE = 1;
 
     /**
      * show this fragment
@@ -127,7 +133,7 @@ public class ScanFragment extends Fragment {
                 activity.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        done(activity, result.getText());
+                        done(root, result.getText());
 //                        Toast.makeText(activity, result.getText(), Toast.LENGTH_SHORT).show();
                     }
                 });
@@ -147,8 +153,24 @@ public class ScanFragment extends Fragment {
     }
 
     // This method is run when a QR code is decoded.
-    private void done(Activity activity, String text) {
+    private void done(View root, String text) {
         // change this to something more useful than a TOAST
-        Toast.makeText(activity, text, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(activity, text, Toast.LENGTH_SHORT).show();
+
+        if (text.startsWith("http://") || text.startsWith("https://")) {
+            // show the webview
+            String url = text;
+            ScannedFragment.showDialog(requireActivity().getSupportFragmentManager(), url);
+
+            // or use an intent?
+//            Intent i = new Intent(Intent.ACTION_VIEW);
+//            i.setData(Uri.parse(url));
+//            startActivity(Intent.createChooser(i, getString(R.string.intent_web_title)));
+        } else {
+            Snackbar.make(root, text, Snackbar.LENGTH_LONG).show();
+        }
+
+        // dismiss the dialog
+        dismiss();
     }
 }

@@ -16,7 +16,6 @@ import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.FragmentManager;
 
 import com.example.greenpassapp.R;
-import com.example.greenpassapp.model.Account;
 import com.example.greenpassapp.model.NRICModel;
 import com.example.greenpassapp.model.PasswordCreator;
 import com.google.android.material.snackbar.Snackbar;
@@ -49,7 +48,7 @@ public class AdminFragment extends DialogFragment {
         if (dialog != null) {
             // doesn't work!?
             dialog.getWindow().setWindowAnimations(
-                    R.style.PassDialogAnimation
+                    R.style.DialogAnimation
             );
         }
     }
@@ -74,7 +73,7 @@ public class AdminFragment extends DialogFragment {
         super.onViewCreated(root, savedInstanceState);
 
         requireDialog().getWindow().setWindowAnimations(
-                R.style.PassDialogAnimation
+                R.style.DialogAnimation
         );
 
         KeyboardManager.hideKeyboard(this.requireContext(), root);
