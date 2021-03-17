@@ -120,9 +120,4 @@ public class LoginFragment extends Fragment {
     // or start scan
 //    ScanFragment.startScan(requireActivity().getSupportFragmentManager());
 
-    public void logout(View view) {
-        Account.setUser("");
-        Account.setUserPassed(false, requireContext());
-    }
-
 }
