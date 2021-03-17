@@ -5,10 +5,10 @@
         app:key="open_category"
         app:title="Links">
 
-        <Preference
-            app:key="pass"
-            app:title="Green Pass"
-            app:summary="Open the GREEN PASS" />
+<!--        <Preference-->
+<!--            app:key="pass"-->
+<!--            app:title="Green Pass"-->
+<!--            app:summary="Open the GREEN PASS" />-->
 
         <Preference
             app:key="scan"
