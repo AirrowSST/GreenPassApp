@@ -1,5 +1,8 @@
 package com.example.greenpassapp.ui.login;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -8,6 +11,8 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
@@ -17,10 +22,15 @@ import com.example.greenpassapp.R;
 import com.example.greenpassapp.model.Account;
 import com.example.greenpassapp.databinding.FragmentLoginBinding;
 
+import static android.content.Context.NOTIFICATION_SERVICE;
+
 public class LoginFragment extends Fragment {
 
     private LoginViewModel mViewModel;
     private FragmentLoginBinding binding;
+
+    private NotificationCompat.Builder notificationBuilder;
+    private int notificationId = 1;
 
     @Nullable
     @Override
@@ -41,6 +51,34 @@ public class LoginFragment extends Fragment {
         mViewModel.passwordInput.observe(getViewLifecycleOwner(), string -> mViewModel.onPasswordTextChange(this));
 
         binding.loginButton.setOnClickListener(view -> login(view, mViewModel.getUsernameInput()));
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            // Create the NotificationChannel
+            String CHANNEL_ID = "channel";
+            String name = getString(R.string.notification_channel_name);
+            String descriptionText = getString(R.string.notification_channel_description);
+            int importance = NotificationManager.IMPORTANCE_DEFAULT;
+            NotificationChannel mChannel = new NotificationChannel(CHANNEL_ID, name, importance);
+            mChannel.setDescription(descriptionText);
+            // Register the channel with the system; you can't change the importance
+            // or other notification behaviors after this
+            NotificationManager notificationManager = (NotificationManager) requireActivity().getSystemService(NOTIFICATION_SERVICE);
+            notificationManager.createNotificationChannel(mChannel);
+
+            notificationBuilder = new NotificationCompat.Builder(requireContext(), CHANNEL_ID)
+                    .setSmallIcon(R.drawable.ic_launcher_foreground)
+                    .setContentTitle("Green Pass App")
+                    .setContentText("Successfully logged in!")
+                    .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                    .setAutoCancel(true);
+        } else {
+            notificationBuilder = new NotificationCompat.Builder(requireContext())
+                    .setSmallIcon(R.drawable.ic_launcher_foreground)
+                    .setContentTitle("Green Pass App")
+                    .setContentText("Successfully logged in!")
+                    .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                    .setAutoCancel(true);
+        }
     }
 
     @Override
@@ -60,6 +98,10 @@ public class LoginFragment extends Fragment {
     public void login(View view, String username) {
         Account.setUser(username);
         Account.setUserPassed(true, requireContext());
+
+        // notify the user about login
+        NotificationManagerCompat.from(requireActivity()).notify(notificationId, notificationBuilder.build());
+        notificationId++;
     }
 
     // can show the dialog

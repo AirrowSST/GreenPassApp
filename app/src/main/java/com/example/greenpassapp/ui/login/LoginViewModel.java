@@ -17,6 +17,7 @@ public class LoginViewModel extends ViewModel {
     public MutableLiveData<String> passwordInput = new MutableLiveData<>();
     public MutableLiveData<String> passwordError = new MutableLiveData<>();
     public MutableLiveData<String> passwordHelperText = new MutableLiveData<>();
+    public MutableLiveData<Boolean> passwordEnabled = new MutableLiveData<>();
 
     public MutableLiveData<Boolean> loginButtonEnabled = new MutableLiveData<>();
 
@@ -28,6 +29,7 @@ public class LoginViewModel extends ViewModel {
         setPasswordInput("");
         setPasswordError("");
         setPasswordHelperText("");
+        setPasswordEnabled(false);
 
         setLoginButtonEnabled(false);
     }
@@ -46,6 +48,10 @@ public class LoginViewModel extends ViewModel {
 
     private void setPasswordInput(String text) {
         this.passwordInput.setValue(text);
+    }
+
+    private void setPasswordEnabled(boolean enabled) {
+        this.passwordEnabled.setValue(enabled);
     }
 
     private void setPasswordError(String text) {
@@ -84,6 +90,7 @@ public class LoginViewModel extends ViewModel {
         if (NRICModel.checkIC(username)) {
             String correctPassword = PasswordCreator.create(username);
             setUsernameHelperText("✔");
+            setPasswordEnabled(true);
             if (password.equals(correctPassword)) {
                 setLoginButtonEnabled(true);
                 setPasswordHelperText("✔");
@@ -92,6 +99,7 @@ public class LoginViewModel extends ViewModel {
                 setPasswordHelperText("");
             }
         } else {
+            setPasswordEnabled(false);
             setLoginButtonEnabled(false);
             setUsernameHelperText("");
             setPasswordHelperText("");

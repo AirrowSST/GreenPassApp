@@ -20,7 +20,7 @@
     <string name="error_long_nric">NRIC is a bit too long.</string>
     <string name="error_spam">Stop spamming.</string>
 
-    <string name="hint_text_password">Password (optional)</string>
+    <string name="hint_text_password">Password</string>
     <string name="error_invalid_password">Invalid password!</string>
     <string name="error_cannot_password">Invalid NRIC above!</string>
 
@@ -53,5 +53,9 @@
     <string name="action_copy">Copy</string>
 
     <string name="intent_web_title">Open in Browser</string>
+
+    <!-- notifications -->
+    <string name="notification_channel_name">Green Pass App</string>
+    <string name="notification_channel_description">GREEN PASS</string>
 
 </resources>

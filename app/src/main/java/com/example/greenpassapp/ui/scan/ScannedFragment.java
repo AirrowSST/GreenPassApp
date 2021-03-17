@@ -1,13 +1,16 @@
 package com.example.greenpassapp.ui.scan;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
@@ -125,6 +128,19 @@ public class ScannedFragment extends DialogFragment {
 
         WebView webView = root.findViewById(R.id.web_view);
         webView.loadUrl(url);
+//        System.out.println(url);
+
+        // not nice
+        webView.setWebViewClient(new WebViewClient() {
+            public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
+//            view.loadUrl(request.getUrl().toString());
+//            System.out.println(request.getUrl().toString());
+            Intent i = new Intent(Intent.ACTION_VIEW);
+            i.setData(request.getUrl());
+            startActivity(Intent.createChooser(i, getString(R.string.intent_web_title)));
+                return false; // not handled by default action
+            }
+        });
 
         webViewDone = true;
     }
