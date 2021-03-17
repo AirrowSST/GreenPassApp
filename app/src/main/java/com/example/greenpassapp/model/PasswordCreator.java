@@ -25,7 +25,7 @@ public class PasswordCreator {
      */
     public static String create(String ic) {
         if (memo.containsKey(ic)) return memo.get(ic);
-        if (!Model.checkIC(ic)) return "error";
+        if (!NRICModel.checkIC(ic)) return "error";
         StringBuilder ans = new StringBuilder("error");
         try {
             byte[] bites = convert(ic); // can throw exception here

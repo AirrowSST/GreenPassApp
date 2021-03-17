@@ -10,6 +10,11 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.TreeMap;
 
+/**
+ * Account class (more like a namespace)
+ * Contains static methods and static fields storing NRICs and corresponding data.
+ * Also keeps track of current user.
+ */
 public class Account {
 
 //     is this good practice?
@@ -25,36 +30,60 @@ public class Account {
     private static final TreeMap<String, Boolean> map = new TreeMap<>();
     private static final TreeMap<String, String> dateMap = new TreeMap<>();
 
+    /**
+     * Getter for the current user.
+     * @return the string data associated with the user. (NRIC, "admin" or "" if there is no current user)
+     */
     public static String getUser() {
         return user;
     }
-
+    /**
+     * Sets the current user's string data. (NRIC, "admin" or "" if there is no current user)
+     * @param user the string data.
+     */
     public static void setUser(String user) {
         Account.user = user;
     }
 
+    /**
+     * Checks if the current user is vaccinated.
+     * @return whether the current user is vaccinated.
+     */
     public static boolean isUserPassed() {
         return isUserPassed(user);
     }
-
+    /**
+     * Gets the date of vaccination of the current user.
+     * @return a string with the date of vaccination.
+     */
     public static String getUserPassDate() {
         return getUserPassDate(user);
     }
 
-    // overriding default above
+    /**
+     * Overloading method - Checks if a given user is vaccinated.
+     * @return whether a given user is vaccinated.
+     */
     public static boolean isUserPassed(String username) {
-        if (username.equals("")) return false;
+        if (username.equals("") || username.equals("admin")) return false;
         Boolean b = map.get(username);
         return b != null && b;
     }
-
-    // overriding default above
+    /**
+     * Overloading method - Gets the date of vaccination of a given user.
+     * @return a string with the date of vaccination.
+     */
     public static String getUserPassDate(String username) {
         if (username.equals("")) return "";
         String s = dateMap.get(username);
         return (s != null) ? s : "";
     }
 
+    /**
+     * Setter for whether the current user has been vaccinated.
+     * @param passed whether the current user has been vaccinated.
+     * @param context the context of the application (used to get the external files)
+     */
     public static void setUserPassed(boolean passed, @Nullable Context context) {
         Account.passed = passed;
 
@@ -77,6 +106,11 @@ public class Account {
         }
     }
 
+    /**
+     * Method to load data from a the external files.
+     * @param context the context of the application (used to get the external files)
+     * @throws IOException if dies.
+     */
     public static void load(Context context) throws IOException {
         // read the file
         String raw = File.readFile("vaccine.txt", context);

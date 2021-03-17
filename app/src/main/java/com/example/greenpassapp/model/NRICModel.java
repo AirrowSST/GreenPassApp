@@ -4,7 +4,7 @@ import android.content.Context;
 
 import java.io.IOException;
 
-public class Model {
+public class NRICModel {
 
     // validate IC
     // should I put this in a separate class?

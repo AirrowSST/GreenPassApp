@@ -15,7 +15,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.greenpassapp.R;
 import com.example.greenpassapp.model.Account;
-import com.example.greenpassapp.model.Model;
+import com.example.greenpassapp.model.NRICModel;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -59,7 +59,7 @@ public class CheckFragment extends Fragment {
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 String text = s.toString();
                 // if the text is a valid NRIC
-                if (Model.checkIC(text)) {
+                if (NRICModel.checkIC(text)) {
                     // show a tick ✔
                     nricLayout.setHelperText("✔");
                     // and enable the check button

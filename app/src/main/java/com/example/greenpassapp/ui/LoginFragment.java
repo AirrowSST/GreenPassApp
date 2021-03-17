@@ -15,7 +15,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.greenpassapp.R;
 import com.example.greenpassapp.model.Account;
-import com.example.greenpassapp.model.Model;
+import com.example.greenpassapp.model.NRICModel;
 import com.example.greenpassapp.model.PasswordCreator;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
@@ -61,7 +61,7 @@ public class LoginFragment extends Fragment {
                 String text = s.toString();
                 String ic = Objects.requireNonNull(usernameInput.getText()).toString();
                 String correct = "password"; // adds bypass for now
-                if (Model.checkIC(ic)) {
+                if (NRICModel.checkIC(ic)) {
                     correct = PasswordCreator.create(ic);
                 }
                 if (correct.equals(text)) {
@@ -79,7 +79,7 @@ public class LoginFragment extends Fragment {
                     if (text.length() > 20) {
                         passwordLayout.setError(getString(R.string.error_spam));
                     } else {
-                        if (Model.checkIC(usernameInput.getText().toString())) {
+                        if (NRICModel.checkIC(usernameInput.getText().toString())) {
                             passwordLayout.setError(getString(R.string.error_invalid_password));
                         } else {
                             passwordLayout.setError(getString(R.string.error_cannot_password));
@@ -106,7 +106,7 @@ public class LoginFragment extends Fragment {
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 String text = s.toString();
                 // if the text is a valid NRIC
-                if (Model.checkIC(text)) {
+                if (NRICModel.checkIC(text)) {
                     // show a tick ✔
                     usernameLayout.setHelperText("✔");
                 } else {

@@ -2,7 +2,7 @@ package com.example.greenpassapp;
 
 import android.os.Bundle;
 
-import com.example.greenpassapp.model.Model;
+import com.example.greenpassapp.model.NRICModel;
 import com.example.greenpassapp.model.PasswordCreator;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Passing each menu ID as a set of IDs because each menu should be considered as top level destinations.
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.navigation_login, R.id.navigation_check, R.id.navigation_home, R.id.navigation_settings
+                R.id.navigation_home, R.id.navigation_login, R.id.navigation_check, R.id.navigation_settings
         ).build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         System.out.println(PasswordCreator.create("S0000001I"));
 
         // initialize the database ("vaccine.txt")
-        Model.initFiles(this);
+        NRICModel.initFiles(this);
 
     }
 
