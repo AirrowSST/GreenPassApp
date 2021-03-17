@@ -16,7 +16,6 @@ import androidx.fragment.app.Fragment;
 import com.example.greenpassapp.R;
 import com.example.greenpassapp.model.Account;
 import com.example.greenpassapp.model.Model;
-import com.example.greenpassapp.model.RealController;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -100,7 +99,7 @@ public class CheckFragment extends Fragment {
         checkButton.setOnClickListener(view -> {
 
             // hide the keyboard
-            RealController.hideKeyboard(requireContext(), view);
+            KeyboardManager.hideKeyboard(requireContext(), view);
 
             resultText.setText(
                 getString(R.string.text_check_result,

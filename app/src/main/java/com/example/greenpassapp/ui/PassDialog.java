@@ -12,7 +12,6 @@ import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.FragmentManager;
 
 import com.example.greenpassapp.R;
-import com.example.greenpassapp.model.RealController;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -81,13 +80,13 @@ public class PassDialog extends DialogFragment {
                 R.style.PassDialogAnimation
         );
 
-        RealController.hideKeyboard(this.requireContext(), root);
+        KeyboardManager.hideKeyboard(this.requireContext(), root);
 
         // close button
         ImageButton closeButton = root.findViewById(R.id.close_dialog);
         closeButton.setOnClickListener(view1 -> {
             dismiss();
-            RealController.hideKeyboard(this.requireContext(), view1);
+            KeyboardManager.hideKeyboard(this.requireContext(), view1);
         });
 
     }

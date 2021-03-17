@@ -1,26 +1,16 @@
 package com.example.greenpassapp;
 
-import android.content.Context;
 import android.os.Bundle;
-import android.view.ContextMenu;
-import android.view.MenuItem;
-import android.view.View;
 
-import com.example.greenpassapp.model.FakeController;
 import com.example.greenpassapp.model.Model;
 import com.example.greenpassapp.model.PasswordCreator;
-import com.example.greenpassapp.ui.SettingsFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.NavUtils;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
-
-import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
