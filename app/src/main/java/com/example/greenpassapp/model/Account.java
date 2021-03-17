@@ -4,6 +4,8 @@ import android.content.Context;
 
 import androidx.annotation.Nullable;
 
+import com.example.greenpassapp.model.file.File;
+
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;

@@ -13,7 +13,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.greenpassapp.R;
 import com.example.greenpassapp.ui.PassDialog;
-import com.example.greenpassapp.ui.ScanFragment;
+import com.example.greenpassapp.ui.scan.ScanFragment;
 
 import org.jetbrains.annotations.NotNull;
 

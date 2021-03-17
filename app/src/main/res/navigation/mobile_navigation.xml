@@ -12,18 +12,6 @@
         tools:layout="@layout/fragment_green_pass" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.example.greenpassapp.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
-
-    <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.example.greenpassapp.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
-
-    <fragment
         android:id="@+id/navigation_login"
         android:name="com.example.greenpassapp.ui.login.LoginFragment"
         android:label="@string/title_login"
@@ -39,14 +27,14 @@
 
     <fragment
         android:id="@+id/navigation_scanner"
-        android:name="com.example.greenpassapp.ui.ScanFragment"
+        android:name="com.example.greenpassapp.ui.scan.ScanFragment"
         android:label="@string/title_scanner"
         tools:layout="@layout/fragment_scan" >
     </fragment>
 
     <fragment
         android:id="@+id/navigation_settings"
-        android:name="com.example.greenpassapp.ui.SettingsFragment"
+        android:name="com.example.greenpassapp.ui.settings.SettingsFragment"
         android:label="@string/title_settings"
         tools:layout="@xml/settings_xml" >
         <action

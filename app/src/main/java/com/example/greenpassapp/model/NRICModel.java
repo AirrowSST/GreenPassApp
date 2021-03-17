@@ -2,6 +2,8 @@ package com.example.greenpassapp.model;
 
 import android.content.Context;
 
+import com.example.greenpassapp.model.file.File;
+
 import java.io.IOException;
 
 /**

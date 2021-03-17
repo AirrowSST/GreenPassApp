@@ -1,8 +1,8 @@
-package com.example.greenpassapp.model;
+package com.example.greenpassapp.model.file;
 
 import android.content.Context;
 
-// import com.example.greenpassapp.model.File0;
+// import com.example.greenpassapp.model.file.File0;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
@@ -10,7 +10,7 @@ import java.io.IOException;
  * I tried to convert this to Java
  * @see File0 for the actual class
  */
-final class File {
+public final class File {
 
     public static java.io.File getFile(String filename, Context context) {
         return File0.INSTANCE.getFile(filename, context);

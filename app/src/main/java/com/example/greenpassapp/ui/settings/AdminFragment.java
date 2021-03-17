@@ -1,4 +1,4 @@
-package com.example.greenpassapp.ui;
+package com.example.greenpassapp.ui.settings;
 
 import android.app.Dialog;
 import android.os.Bundle;
@@ -18,6 +18,7 @@ import androidx.fragment.app.FragmentManager;
 import com.example.greenpassapp.R;
 import com.example.greenpassapp.model.NRICModel;
 import com.example.greenpassapp.model.PasswordCreator;
+import com.example.greenpassapp.ui.KeyboardManager;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;

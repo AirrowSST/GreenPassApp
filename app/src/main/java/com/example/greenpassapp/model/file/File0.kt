@@ -1,4 +1,4 @@
-package com.example.greenpassapp.model
+package com.example.greenpassapp.model.file
 
 import android.content.Context
 import java.io.File

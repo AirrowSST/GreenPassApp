@@ -1,4 +1,4 @@
-package com.example.greenpassapp.ui;
+package com.example.greenpassapp.ui.settings;
 
 import android.os.Bundle;
 import android.widget.Toast;
@@ -9,6 +9,8 @@ import androidx.preference.PreferenceFragmentCompat;
 
 import com.example.greenpassapp.MainActivity;
 import com.example.greenpassapp.R;
+import com.example.greenpassapp.ui.PassDialog;
+import com.example.greenpassapp.ui.scan.ScanFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.Objects;
