@@ -103,6 +103,7 @@ public class LoginFragment extends Fragment {
         // notify the user about login
         NotificationManagerCompat.from(requireActivity()).notify(notificationId, notificationBuilder.build());
         notificationId++;
+        //open popup for green pass
     }
 
     // can show the dialog

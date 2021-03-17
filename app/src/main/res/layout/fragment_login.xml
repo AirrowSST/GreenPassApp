@@ -80,13 +80,14 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="48dp"
             android:layout_marginBottom="64dp"
+            android:enabled="@{loginViewModel.loginButtonEnabled}"
+            android:onClick="loginClick"
             android:text="@string/action_login"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/layout_password"
-            app:layout_constraintVertical_bias="0.2"
-            android:enabled="@{loginViewModel.loginButtonEnabled}"/>
+            app:layout_constraintVertical_bias="0.2" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

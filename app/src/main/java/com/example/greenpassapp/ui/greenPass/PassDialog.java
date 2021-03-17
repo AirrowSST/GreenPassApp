@@ -10,6 +10,7 @@ import android.widget.ImageButton;
 
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.greenpassapp.R;
 import com.example.greenpassapp.ui.KeyboardManager;

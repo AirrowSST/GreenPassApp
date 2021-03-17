@@ -6,10 +6,12 @@ import android.view.View;
 import com.example.greenpassapp.model.NRICModel;
 import com.example.greenpassapp.model.PasswordCreator;
 import com.example.greenpassapp.ui.KeyboardManager;
+import com.example.greenpassapp.ui.greenPass.GreenPassFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -53,4 +55,13 @@ public class MainActivity extends AppCompatActivity {
         return bottomNavigationView;
     }
 
+    public void openGreenPass(View view){
+        GreenPassFragment gpf = new GreenPassFragment();
+        gpf.showDialog();
+    }
+
+    public void loginClick(View view){
+        GreenPassFragment gpf = new GreenPassFragment();
+        gpf.showDialog();
+    }
 }
