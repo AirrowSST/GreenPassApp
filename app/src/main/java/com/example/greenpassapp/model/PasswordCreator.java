@@ -6,6 +6,10 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.TreeMap;
 
+/**
+ * Class for providing pseudo-randomly generated passwords.
+ * contains static fields and methods (like a namespace)
+ */
 public class PasswordCreator {
 
     public static final int MIN_LENGTH = 1;
@@ -19,7 +23,7 @@ public class PasswordCreator {
 
     /**
      * creates a 10-letter password for the user with the nric
-     * specifically outputs "yusofishak" for a certain user
+     * (specifically outputs "yusofishak" for a certain user)
      * @param ic the nric
      * @return a unique password based on the input
      */

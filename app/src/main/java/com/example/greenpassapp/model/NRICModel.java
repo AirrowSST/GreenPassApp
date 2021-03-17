@@ -4,6 +4,9 @@ import android.content.Context;
 
 import java.io.IOException;
 
+/**
+ * Contains static methods related to NRICs (like a namespace)
+ */
 public class NRICModel {
 
     // validate IC
@@ -15,6 +18,12 @@ public class NRICModel {
     private static final String S_or_T = "JZIHGFEDCBA";
 
     // ok https://ivantay2003.medium.com/creation-of-singapore-identity-number-nric-24fc3b446145
+
+    /**
+     * Checks if a given NRIC is valid.
+     * @param ic the given NRIC.
+     * @return whether the id is valid or not.
+     */
     public static boolean checkIC(String ic) {
         if (ic.length() != 9)
             return false;
@@ -38,6 +47,10 @@ public class NRICModel {
     }
 
     // initialize the "fake online database"
+    /**
+     * Initialise static Account class fields with user data. (Simulating online database using external file storage)
+     * @param context the context of the application (used to get the external files)
+     */
     public static void initFiles(Context context) {
         try {
 

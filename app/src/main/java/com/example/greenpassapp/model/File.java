@@ -10,7 +10,7 @@ import java.io.IOException;
  * I tried to convert this to Java
  * @see File0 for the actual class
  */
-public final class File {
+final class File {
 
     public static java.io.File getFile(String filename, Context context) {
         return File0.INSTANCE.getFile(filename, context);
