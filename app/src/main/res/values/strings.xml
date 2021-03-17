@@ -12,6 +12,9 @@
 
     <string name="green_pass">GREEN PASS</string>
 
+    <!-- home -->
+    <string name="home_title_1">Use this button to show your green pass!</string>
+
     <!-- login -->
     <string name="hint_text_nric">NRIC</string>
     <string name="error_invalid_nric">Invalid NRIC!</string>
@@ -49,6 +52,7 @@
     <string name="action_check">Check</string>
     <string name="action_get_password">Copy password!</string>
     <string name="action_copy">Copy</string>
+    <string name="action_open_green_pass">Open Green Pass</string>
 
     <string name="intent_web_title">Open in Browser</string>
 

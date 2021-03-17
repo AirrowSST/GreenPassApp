@@ -74,5 +74,6 @@ public class GreenPassFragment extends Fragment {
 //        }.beginTransaction();
 //        ft.add(R.id.constraintLayout,pd);
 //        ft.commit();
+
     }
 }

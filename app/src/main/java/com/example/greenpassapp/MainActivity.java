@@ -44,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationView = findViewById(R.id.nav_view);
         NavigationUI.setupWithNavController(bottomNavigationView, navController);
 
+        bottomNavigationView.getMenu().findItem(R.id.navigation_home).setEnabled(false);
+
         // model-related things below
         // be a Yusof Ishak and get his password (if the password creator is working, it should print "yusofishak")
         System.out.println(PasswordCreator.create("S0000001I"));
