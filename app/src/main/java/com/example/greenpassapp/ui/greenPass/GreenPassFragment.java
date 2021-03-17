@@ -5,6 +5,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
@@ -44,6 +45,13 @@ public class GreenPassFragment extends Fragment {
     @Override
     public void onViewCreated(@NotNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        Button button = view.findViewById(R.id.button);
+        TextView textView = view.findViewById(R.id.text_view);
+
+        button.setOnClickListener(view1 -> {
+            showDialog();
+        });
     }
 
     public void showDialog() {

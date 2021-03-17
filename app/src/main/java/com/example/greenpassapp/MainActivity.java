@@ -55,13 +55,13 @@ public class MainActivity extends AppCompatActivity {
         return bottomNavigationView;
     }
 
-    public void openGreenPass(View view){
-        GreenPassFragment gpf = new GreenPassFragment();
-        gpf.showDialog();
-    }
-
-    public void loginClick(View view){
-        GreenPassFragment gpf = new GreenPassFragment();
-        gpf.showDialog();
-    }
+//    public void openGreenPass(View view){
+//        GreenPassFragment gpf = new GreenPassFragment();
+//        gpf.showDialog();
+//    }
+//
+//    public void loginClick(View view){
+//        GreenPassFragment gpf = new GreenPassFragment();
+//        gpf.showDialog();
+//    }
 }
