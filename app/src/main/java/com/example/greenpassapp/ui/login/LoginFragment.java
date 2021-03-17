@@ -18,9 +18,13 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.greenpassapp.BR;
+import com.example.greenpassapp.MainActivity;
 import com.example.greenpassapp.R;
 import com.example.greenpassapp.model.Account;
 import com.example.greenpassapp.databinding.FragmentLoginBinding;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import java.util.Objects;
 
 import static android.content.Context.NOTIFICATION_SERVICE;
 
@@ -103,6 +107,12 @@ public class LoginFragment extends Fragment {
         // notify the user about login
         NotificationManagerCompat.from(requireActivity()).notify(notificationId, notificationBuilder.build());
         notificationId++;
+        //open popup for green pass
+
+        BottomNavigationView bottomNavigationView = Objects.requireNonNull(Objects.requireNonNull((MainActivity) requireActivity()).getBottomNavigation());
+        bottomNavigationView.getMenu().findItem(R.id.navigation_login).setEnabled(false);
+        bottomNavigationView.getMenu().findItem(R.id.navigation_home).setEnabled(true);
+        bottomNavigationView.setSelectedItemId(R.id.navigation_home);
     }
 
     // can show the dialog
