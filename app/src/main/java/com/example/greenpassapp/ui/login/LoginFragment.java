@@ -81,6 +81,7 @@ public class LoginFragment extends Fragment {
         }
     }
 
+    // does nothing?
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {

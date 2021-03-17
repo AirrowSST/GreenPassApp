@@ -3,8 +3,6 @@
 
     <string name="title_activity_main">Green Pass App</string>
     <string name="title_home">Green Pass</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
     <string name="title_login">Profile</string>
     <string name="title_check">Check</string>
     <string name="title_settings">Settings</string>
