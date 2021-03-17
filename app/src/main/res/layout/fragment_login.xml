@@ -26,11 +26,12 @@
             app:counterEnabled="true"
             app:counterMaxLength="9"
             app:errorEnabled="true"
-            app:helperText=""
             app:helperTextEnabled="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            app:error="@{loginViewModel.usernameError}"
+            app:helperText="@{loginViewModel.usernameHelperText}">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/input_username"
@@ -52,11 +53,12 @@
             android:hint="@string/hint_text_password"
             app:endIconMode="password_toggle"
             app:errorEnabled="true"
-            app:helperText=""
             app:helperTextEnabled="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/layout_username">
+            app:layout_constraintTop_toBottomOf="@id/layout_username"
+            app:error="@{loginViewModel.passwordError}"
+            app:helperText="@{loginViewModel.passwordHelperText}">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/input_password"
@@ -77,13 +79,13 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="48dp"
             android:layout_marginBottom="64dp"
-            android:enabled="false"
             android:text="@string/action_login"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/layout_password"
-            app:layout_constraintVertical_bias="0.2" />
+            app:layout_constraintVertical_bias="0.2"
+            android:enabled="@{loginViewModel.loginButtonEnabled}"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

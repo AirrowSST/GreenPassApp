@@ -15,11 +15,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.greenpassapp.BR;
 import com.example.greenpassapp.R;
 import com.example.greenpassapp.model.Account;
-import com.example.greenpassapp.model.NRICModel;
-import com.example.greenpassapp.model.PasswordCreator;
 import com.example.greenpassapp.databinding.FragmentLoginBinding;
-
-import java.util.Objects;
 
 public class LoginFragment extends Fragment {
 
@@ -41,92 +37,16 @@ public class LoginFragment extends Fragment {
         mViewModel = new ViewModelProvider(this).get(LoginViewModel.class);
         binding.setVariable(BR.loginViewModel, mViewModel);
 
-        mViewModel.usernameInput.observe(getViewLifecycleOwner(), string -> {
-            onUsernameTextChanged();
-            onPasswordTextChanged();
-        });
-        mViewModel.passwordInput.observe(getViewLifecycleOwner(), string -> {
-            onUsernameTextChanged();
-            onPasswordTextChanged();
-        });
+        mViewModel.usernameInput.observe(getViewLifecycleOwner(), string -> mViewModel.onUsernameTextChange(this));
+        mViewModel.passwordInput.observe(getViewLifecycleOwner(), string -> mViewModel.onPasswordTextChange(this));
 
-        binding.loginButton.setOnClickListener(view -> {
-            login(view, Objects.requireNonNull(binding.inputUsername.getText()).toString());
-        });
+        binding.loginButton.setOnClickListener(view -> login(view, mViewModel.getUsernameInput()));
     }
 
-    private void onUsernameTextChanged() {
-        String text = mViewModel.getUsernameInput();
-        // if the text is a valid NRIC
-        if (NRICModel.checkIC(text)) {
-            // show a tick ✔
-            binding.layoutUsername.setHelperText("✔");
-        } else {
-            // do stuff based on the length of the input
-            int len = text.length();
-            if (len != 9) {
-                // invalid ic length
-                if (len > 9) {
-                    // too many characters
-                    if (len > 20) {
-                        binding.layoutUsername.setError(getString(R.string.error_spam));
-                    } else {
-                        binding.layoutUsername.setError(getString(R.string.error_long_nric));
-                    }
-                } else {
-                    // too few characters
-                    binding.layoutUsername.setHelperText("...");
-                }
-            } else {
-                // correct number of characters, but still invalid
-                binding.layoutUsername.setError(getString(R.string.error_invalid_nric));
-            }
-        }
-    }
-
-    private void onPasswordTextChanged() {
-        String text = mViewModel.getPasswordInput();
-        String ic = mViewModel.getPasswordInput();
-        String correct = "password"; // adds bypass for now
-        if (NRICModel.checkIC(ic)) {
-            correct = PasswordCreator.create(ic);
-        }
-        binding.layoutPassword.setEnabled(true);
-        if (correct.equals(text)) {
-            // password is correct!
-            // turn on login button
-            binding.loginButton.setEnabled(true);
-            // show a tick ✔
-            binding.layoutPassword.setHelperText("✔");
-        } else {
-            // password is not correct
-            // turn off login button
-            binding.loginButton.setEnabled(false);
-            // show error(s)
-            binding.layoutPassword.setErrorIconDrawable(null);
-            if (text.length() > 20) {
-                binding.layoutPassword.setError(getString(R.string.error_spam));
-            } else {
-                if (NRICModel.checkIC(mViewModel.getUsernameInput())) {
-                    if (text.length() > 0) {
-                        binding.layoutPassword.setError(getString(R.string.error_invalid_password));
-                    } else {
-                        binding.layoutPassword.setHelperText("...");
-                    }
-                } else {
-                    binding.layoutPassword.setEnabled(false);
-                    binding.layoutPassword.setError(getString(R.string.error_cannot_password));
-                }
-            }
-        }
-    }
-
-    // does nothing at all
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-//                NavUtils.navigateUpFromSameTask(this);
                 System.out.println("login: back button pressed");
                 return true;
             default:
@@ -138,24 +58,17 @@ public class LoginFragment extends Fragment {
      * This method is run when user clicks on the login button (it must be enabled)
      */
     public void login(View view, String username) {
-//        System.out.println("login button pressed");
-
-        // log in
         Account.setUser(username);
-
-        // Just a test.
-        // The user should not have to provide a password on login but rather using something else (probably on a profile page).
-        // The line below should be deleted.
         Account.setUserPassed(true, requireContext());
     }
 
+    // can show the dialog
+//    PassDialog.showDialog(requireActivity().getSupportFragmentManager());
+    // or start scan
+//    ScanFragment.startScan(requireActivity().getSupportFragmentManager());
+
     public void logout(View view) {
-//        System.out.println("logout button pressed");
-
-        // log out
         Account.setUser("");
-
-        // user passed yay
         Account.setUserPassed(false, requireContext());
     }
 
