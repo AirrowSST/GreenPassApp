@@ -63,7 +63,8 @@ public class SettingsFragment extends PreferenceFragmentCompat {
     private void adminClicked() {
         counter--;
         if (counter <= 0) {
-            Toast.makeText(requireContext(), "You are now an admin!", Toast.LENGTH_SHORT)
+            String toastText = (isAdmin) ? "Opening admin dialog..." : "You are now an admin!";
+            Toast.makeText(requireContext(), toastText, Toast.LENGTH_SHORT)
                     .show();
             showAdmin();
         } else if (counter <= 5) {

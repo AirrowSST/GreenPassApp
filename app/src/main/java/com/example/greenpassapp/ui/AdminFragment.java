@@ -108,6 +108,9 @@ public class AdminFragment extends DialogFragment {
                     layout.setHelperText("✔");
                     // and enable the check button
                     getPasswordButton.setEnabled(true);
+                    // and update the password
+                    TextView textView = root.findViewById(R.id.password_result);
+                    textView.setText(getString(R.string.text_password_result, PasswordCreator.create(text)));
                 } else {
                     // disable the button due to invalid input
                     getPasswordButton.setEnabled(false);
@@ -151,8 +154,7 @@ public class AdminFragment extends DialogFragment {
             Snackbar.make(view, "Password copied to clipboard!", Snackbar.LENGTH_LONG)
                 .show();
 
-            TextView textView = root.findViewById(R.id.password_result);
-            textView.setText(getString(R.string.text_password_result, PasswordCreator.create(ic)));
+            // no need to update textview here
 
         });
 
