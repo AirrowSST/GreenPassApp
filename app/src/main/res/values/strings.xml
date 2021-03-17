@@ -43,8 +43,8 @@
 
     <string name="admin_hack_toast">You are %d steps away from becoming an admin.</string>
     <string name="admin_hack_toast_one">You are 1 step away from becoming an admin.</string>
-    <string name="admin_open_toast">Opening admin dialog…</string>
-    <string name="admin_open_toast_first_time">You are now an admin!</string>
+    <string name="admin_open_toast_first_time">Opening admin dialog…</string>
+    <string name="admin_open_toast">You are now an admin!</string>
 
     <!-- buttons -->
     <string name="action_login">Login</string>

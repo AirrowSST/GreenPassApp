@@ -19,6 +19,7 @@ public class SettingsFragment extends PreferenceFragmentCompat {
 
     private int counter = 10;
     private boolean isAdmin = false;
+    private Toast toast;
 
     @Override
     public void onStart() {
@@ -35,12 +36,7 @@ public class SettingsFragment extends PreferenceFragmentCompat {
 //        ((FragmentBreadCrumbs)(requireActivity().findViewById(android.R.id.title))).setVisibility(View.GONE);
         // no 3
 //        requireActivity().getWindow().requestFeature(Window.FEATURE_NO_TITLE);
-
-        if (isAdmin) {
-            counter = 1;
-        } else {
-            counter = 10;
-        }
+        resetAdminCount();
     }
 
     @Override
@@ -83,26 +79,37 @@ public class SettingsFragment extends PreferenceFragmentCompat {
         return super.onPreferenceTreeClick(preference);
     }
 
+    private void resetAdminCount() {
+        if (isAdmin) {
+            counter = 1;
+        } else {
+            counter = 20;
+        }
+    }
+
     private void adminClicked() {
         counter--;
-        if (counter <= 0) {
-            String toastText = (isAdmin)
-                    ? getString(R.string.admin_open_toast)
-                    : getString(R.string.admin_open_toast_first_time);
-
-            Toast.makeText(requireContext(), toastText, Toast.LENGTH_SHORT)
-                    .show();
+        String toastText;
+        if (counter == 0) {
+            toastText = (isAdmin)
+                ? getString(R.string.admin_open_toast)
+                : getString(R.string.admin_open_toast_first_time);
+            if (toast != null)
+                toast.cancel();
+            toast = Toast.makeText(getActivity(), toastText, Toast.LENGTH_SHORT);
+            toast.show();
+            resetAdminCount();
             showAdmin();
         } else if (counter <= 5) {
-            String toastText;
             if (counter == 1) {
                 toastText = getString(R.string.admin_hack_toast_one);
             } else {
                 toastText = getString(R.string.admin_hack_toast, counter);
             }
-
-            Toast.makeText(requireContext(), toastText, Toast.LENGTH_SHORT)
-                .show();
+            if (toast != null)
+                toast.cancel();
+            toast = Toast.makeText(getActivity(), toastText, Toast.LENGTH_SHORT);
+            toast.show();
         }
     }
 
