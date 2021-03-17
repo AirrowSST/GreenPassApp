@@ -1,4 +1,4 @@
-package com.example.greenpassapp.ui.home;
+package com.example.greenpassapp.ui.greenPass;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -15,17 +15,17 @@ import com.example.greenpassapp.R;
 
 import org.jetbrains.annotations.NotNull;
 
-public class HomeFragment extends Fragment {
+public class GreenPassFragment extends Fragment {
 
-    private HomeViewModel homeViewModel;
+    private GreenPassViewModel greenPassViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        homeViewModel =
-                new ViewModelProvider(this).get(HomeViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_home, container, false);
+        greenPassViewModel =
+                new ViewModelProvider(this).get(GreenPassViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_green_pass, container, false);
         final TextView textView = root.findViewById(R.id.text_home);
-        homeViewModel.getText().observe(getViewLifecycleOwner(), s -> {
+        greenPassViewModel.getText().observe(getViewLifecycleOwner(), s -> {
             textView.setText(s);
         });
         return root;
