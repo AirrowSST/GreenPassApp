@@ -7,11 +7,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.FragmentManager;
 
 import com.example.greenpassapp.R;
+import com.example.greenpassapp.model.Account;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -88,6 +90,10 @@ public class PassDialog extends DialogFragment {
             dismiss();
             KeyboardManager.hideKeyboard(this.requireContext(), view1);
         });
+
+        TextView text = root.findViewById(R.id.greenPassDate);
+
+        text.setText(Account.getUserPassDate());
 
     }
 

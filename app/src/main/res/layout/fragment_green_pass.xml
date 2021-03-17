@@ -7,6 +7,18 @@
     android:layout_height="match_parent"
     tools:context=".ui.greenPass.GreenPassFragment">
 
+<!--    <ImageView-->
+<!--        android:id="@+id/imageView2"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:layout_marginStart="16dp"-->
+<!--        android:layout_marginEnd="16dp"-->
+<!--        android:src="@drawable/rounded_rectangle"-->
+<!--        app:layout_constraintBottom_toBottomOf="@+id/pass_button"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="@+id/text_view2" />-->
+
     <Button
         android:id="@+id/pass_button"
         android:layout_width="wrap_content"
