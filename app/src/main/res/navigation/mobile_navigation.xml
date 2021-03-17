@@ -32,7 +32,7 @@
 
     <fragment
         android:id="@+id/navigation_check"
-        android:name="com.example.greenpassapp.ui.CheckFragment"
+        android:name="com.example.greenpassapp.ui.check.CheckFragment"
         android:label="@string/title_check"
         tools:layout="@layout/fragment_check" >
     </fragment>
