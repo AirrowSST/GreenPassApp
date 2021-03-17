@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:backgroundTint="#17F620"
     tools:context=".ui.PassDialog">
 
     <androidx.appcompat.widget.Toolbar
@@ -26,18 +26,37 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_round_close_24" />
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#55B544"
+        android:paddingLeft="60dp"
+        android:paddingTop="60dp"
+        android:paddingRight="60dp"
+        android:paddingBottom="120dp"
+        android:src="@drawable/ic_done_outline_24px"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/event_dialog_toolbar" />
+
+    <TextView
+        android:id="@+id/passDateTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="100dp"
+        android:text="GREEN PASS"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <!-- found when searching google images for "green pass" -->
     <!-- https://m.media-amazon.com/images/I/71TGGX4tY6L.jpg -->
     <!-- wow the two lines above are exactly the same length -->
     <!-- wow the three lines above are the exact same length -->
     <!-- wow the four lines above are... i will not continue -->
-    <ImageView
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/event_dialog_toolbar"
-        android:src="@drawable/green_pass_temp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
