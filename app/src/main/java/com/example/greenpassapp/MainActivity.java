@@ -3,6 +3,7 @@ package com.example.greenpassapp;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.greenpassapp.model.Account;
 import com.example.greenpassapp.model.NRICModel;
 import com.example.greenpassapp.model.PasswordCreator;
 import com.example.greenpassapp.ui.KeyboardManager;
@@ -16,6 +17,8 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
+
+import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
         // hide keyboard on touch
         View root = findViewById(R.id.activityMainRoot);
         root.setOnClickListener(arg -> KeyboardManager.hideKeyboard(getBaseContext(), root));
-
 
         // Navigation
         // Passing each menu ID as a set of IDs because each menu should be considered as top level destinations.

@@ -20,10 +20,15 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.greenpassapp.MainActivity;
 import com.example.greenpassapp.R;
+import com.example.greenpassapp.model.Account;
+import com.example.greenpassapp.ui.KeyboardManager;
 import com.example.greenpassapp.ui.PassDialog;
 import com.example.greenpassapp.ui.scan.ScanFragment;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import org.jetbrains.annotations.NotNull;
+
+import java.util.Objects;
 
 public class GreenPassFragment extends Fragment {
 
@@ -46,19 +51,25 @@ public class GreenPassFragment extends Fragment {
     public void onViewCreated(@NotNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        Button button = view.findViewById(R.id.button);
-        TextView textView = view.findViewById(R.id.text_view);
+        KeyboardManager.hideKeyboard(requireContext(), view);
 
-        button.setOnClickListener(view1 -> {
-            showDialog();
-        });
+        Button button = view.findViewById(R.id.pass_button);
+        Button scannerButton = view.findViewById(R.id.scanner_button);
+        TextView textView = view.findViewById(R.id.text_view);
+        Button logoutButton = view.findViewById(R.id.logout_button);
+
+        button.setOnClickListener(this::showDialog);
+
+        scannerButton.setOnClickListener(this::showScanner);
+
+        logoutButton.setOnClickListener(this::logout);
     }
 
-    public void showDialog() {
+    public void showDialog(View view) {
         PassDialog.showDialog(requireActivity().getSupportFragmentManager());
     }
 
-    public void showScanner() {
+    public void showScanner(View view) {
         ScanFragment.startScan(requireActivity().getSupportFragmentManager());
     }
 
@@ -75,5 +86,15 @@ public class GreenPassFragment extends Fragment {
 //        ft.add(R.id.constraintLayout,pd);
 //        ft.commit();
 
+    }
+
+    public void logout(View view) {
+        Account.setUser("");
+        Account.setUserPassed(false, requireContext());
+
+        BottomNavigationView bottomNavigationView = Objects.requireNonNull(Objects.requireNonNull((MainActivity) requireActivity()).getBottomNavigation());
+        bottomNavigationView.getMenu().findItem(R.id.navigation_home).setEnabled(false);
+        bottomNavigationView.getMenu().findItem(R.id.navigation_login).setEnabled(true);
+        bottomNavigationView.setSelectedItemId(R.id.navigation_login);
     }
 }

@@ -13,7 +13,8 @@
     <string name="green_pass">GREEN PASS</string>
 
     <!-- home -->
-    <string name="home_title_1">Use this button to show your green pass!</string>
+    <string name="home_title_1">Show your Green Pass!</string>
+    <string name="home_title_2">Scan a SafeEntry QR code!</string>
 
     <!-- login -->
     <string name="hint_text_nric">NRIC</string>
@@ -49,10 +50,12 @@
 
     <!-- buttons -->
     <string name="action_login">Login</string>
+    <string name="action_logout">Logout</string>
     <string name="action_check">Check</string>
     <string name="action_get_password">Copy password!</string>
     <string name="action_copy">Copy</string>
     <string name="action_open_green_pass">Open Green Pass</string>
+    <string name="action_open_qr_scanner">Open QR Scanner</string>
 
     <string name="intent_web_title">Open in Browser</string>
 
