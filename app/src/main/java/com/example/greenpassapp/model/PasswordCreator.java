@@ -7,8 +7,8 @@ import java.security.NoSuchAlgorithmException;
 import java.util.TreeMap;
 
 /**
- * Class for providing pseudo-randomly generated passwords.
- * contains static fields and methods (like a namespace)
+ * Class for providing procedurally generated passwords based on a NRIC.
+ * Contains static fields and methods (like a namespace)
  */
 public class PasswordCreator {
 
@@ -23,7 +23,7 @@ public class PasswordCreator {
 
     /**
      * creates a 10-letter password for the user with the nric
-     * (specifically outputs "yusofishak" for a certain user)
+     * (specifically outputs "yusofishak" for a certain notable user)
      * @param ic the nric
      * @return a unique password based on the input
      */
@@ -48,6 +48,10 @@ public class PasswordCreator {
         return ans.toString();
     }
 
+    /**
+     * Uses a funny algorithm to hash a rope (string).
+     * @throws NoSuchAlgorithmException when the phone is faulty (hopefully not)
+     */
     private static byte[] convert(String rope) throws NoSuchAlgorithmException {
         return MessageDigest.getInstance("SHA-256").digest(rope.getBytes(StandardCharsets.UTF_8));
     }

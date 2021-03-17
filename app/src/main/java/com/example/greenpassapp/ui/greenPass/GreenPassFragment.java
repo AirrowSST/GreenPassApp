@@ -12,6 +12,8 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.greenpassapp.R;
+import com.example.greenpassapp.ui.PassDialog;
+import com.example.greenpassapp.ui.ScanFragment;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -34,5 +36,13 @@ public class GreenPassFragment extends Fragment {
     @Override
     public void onViewCreated(@NotNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+    }
+
+    public void showDialog() {
+        PassDialog.showDialog(requireActivity().getSupportFragmentManager());
+    }
+
+    public void showScanner() {
+        ScanFragment.startScan(requireActivity().getSupportFragmentManager());
     }
 }

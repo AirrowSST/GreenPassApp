@@ -10,4 +10,5 @@
 
     <!-- added colours -->
     <color name="transparent">#00000000</color>
+    <color name="admin">#FFFFECCC</color>
 </resources>

@@ -16,9 +16,9 @@
         app:title="Hacks">
 
         <Preference
-            app:key="clicker"
-            app:title="Hello!"
-            app:summary="Click here to become an admin! (no)" />
+            app:key="admin"
+            app:title="GREEN ADMIN!"
+            app:summary="Click here to become an admin!" />
 
     </PreferenceCategory>
 

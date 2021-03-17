@@ -65,7 +65,7 @@ public class CheckFragment extends Fragment {
                     checkButton.setEnabled(true);
                 } else {
                     // disable the button due to invalid input
-                    checkButton.setEnabled(true);
+                    checkButton.setEnabled(false);
                     // do stuff based on the length of the input
                     int len = text.length();
                     if (len != 9) {
@@ -100,6 +100,7 @@ public class CheckFragment extends Fragment {
             // hide the keyboard
             KeyboardManager.hideKeyboard(requireContext(), view);
 
+            // one line (bad!)
             resultText.setText(
                 getString(R.string.text_check_result,
                     (Account.isUserPassed(Objects.requireNonNull(nricInput.getText()).toString()))

@@ -149,11 +149,6 @@ public class LoginFragment extends Fragment {
         Account.setUserPassed(true, requireContext());
     }
 
-    // can show the dialog
-//    PassDialog.showDialog(requireActivity().getSupportFragmentManager());
-    // or start scan
-//    ScanFragment.startScan(requireActivity().getSupportFragmentManager());
-
     public void logout(View view) {
 //        System.out.println("logout button pressed");
 
